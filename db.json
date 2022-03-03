@@ -13,28 +13,10 @@
       "price": 7.99
     },
     {
-      "id": 3,
-      "image": "./images/milk.png",
-      "name": "Milk",
-      "price": 3.99
-    },
-    {
-      "id": 5,
-      "image": "./images/eggs.jpg",
-      "name": "Eggs",
-      "price": 1.99
-    },
-    {
       "id": 6,
       "image": "./images/spaghettios.jpeg",
       "name": "Spaghettios",
       "price": 2.99
-    },
-    {
-      "id": 7,
-      "name": "Black Beans",
-      "image": "./images/black-beans.jpeg",
-      "price": 0.89
     },
     {
       "id": 8,

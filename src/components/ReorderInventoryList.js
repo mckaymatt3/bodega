@@ -1,27 +1,21 @@
+// import any (children) components or {use+__} required here
 import React from 'react'
-import InventoryItemCard from './InventoryItemCard'
+import InventoryItemCard from './InventoryItemCard';
 
-function ReorderInventoryList({ 
-    reorderList, 
-    handleRemoveItem,
-    handleDeletedItem
-}) {
-    console.log("Reorder List:", reorderList)
-
-    const reorderListItems = reorderList.map(function (reorderItem) {
-        return <InventoryItemCard 
-            key={reorderItem.id} 
-            item={reorderItem} 
-            handleItem={handleRemoveItem}
-            handleDeletedItem={handleDeletedItem}
-            />
-      })
-
+function ReorderInventoryList({reorder, removeReorder, deleteItemAndRemove }) {
+    // create a function with a const to call below and render the items - very similar to CurrentInventoryList style
+    const showReorder = reorder.map(function(item){
+        // EVERY MAP SHOULD HAVE A RETURNNNNN
+        return <InventoryItemCard key={item.id} item={item} changeReorder={removeReorder} deleteItemAndRemove={deleteItemAndRemove}/>
+    }) 
+    
     return(
         <div id="reorder-container">
             <h2>Reorder</h2>
-            <div >
-                {reorderListItems}
+            <div>
+                {
+                    showReorder
+                }
             </div>
         </div>
     );

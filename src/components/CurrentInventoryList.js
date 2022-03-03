@@ -1,32 +1,26 @@
+// import any components you need to below
 import React from 'react'
-import InventoryItemCard from './InventoryItemCard'
+import InventoryItemCard from './InventoryItemCard';
 
-function CurrentInventoryList({
-    inventory, 
-    reorderList, 
-    postSingleItem, 
-    handleAddedItem, 
-    handleDeletedItem
-}) {
-    
-    
-    const mapInventory = inventory.map( function (item){
+// pull in props
+function CurrentInventoryList({inventory, addReorder, deleteItemAndRemove}) {
+    // create a function in a const that will render/map the items so you can call and display below    
+    const showInventory = inventory.map(function(item){
+        // console.log to ensure item is being pulled in 
         // console.log("Item: ", item)
-        return <InventoryItemCard 
-            key={item.id} 
-            item={item}  
-            reorderList={reorderList} 
-            postSingleItem={postSingleItem} 
-            handleItem={handleAddedItem}
-            handleDeletedItem={handleDeletedItem}
-            />
+        // RETURN the props to pass down to the div below within the Inventory Manager component
+        return <InventoryItemCard key={item.id} item={item} changeReorder={addReorder} deleteItemAndRemove={deleteItemAndRemove} />
     })
+
 
     return(
         <div id="current-inventory">
             <h2>Current Inventory</h2>
             <div>
-                {mapInventory}
+                {
+                    // call the const built above into the div
+                    showInventory
+                }
             </div>
         </div>
     );
